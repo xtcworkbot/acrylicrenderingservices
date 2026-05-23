@@ -14,6 +14,7 @@ const VIEWPORTS = {
   desktop: { width: 1440, height: 900, deviceScaleFactor: 2, isMobile: false },
   mobile: { width: 390, height: 844, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
   tablet: { width: 834, height: 1112, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
+  og: { width: 1200, height: 630, deviceScaleFactor: 1, isMobile: false },
 };
 
 if (!url) {
