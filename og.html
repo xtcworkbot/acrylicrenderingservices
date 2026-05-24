@@ -2,40 +2,33 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8" />
-<title>OG Preview</title>
+<title>OG Preview — Acrylic Rendering Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #0D0C0A;
-    --surface: #161410;
-    --line: #2A261F;
-    --text: #EEE7D7;
-    --muted: #A39B89;
-    --accent: #DC6B2F;
+    --pink:    #EC2074;
+    --pinklt:  #FFB3CD;
+    --ink:     #0B0B0D;
+    --cream:   #FAF6EE;
+    --lime:    #D4ED2A;
+    --mute:    #9C939E;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1200px; height: 630px; overflow: hidden; }
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--pink);
+    color: var(--ink);
+    font-family: 'Archivo', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     position: relative;
   }
 
-  .atmosphere {
-    position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      radial-gradient(70% 70% at 90% 0%, rgba(220, 107, 47, 0.32), transparent 60%),
-      radial-gradient(50% 60% at 0% 110%, rgba(220, 107, 47, 0.10), transparent 65%),
-      var(--bg);
-  }
   .grain {
     position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    opacity: 0.08; mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.91 0 0 0 0 0.84 0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.18; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.08 0 0 0 0 0.10 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
   .frame {
@@ -52,36 +45,44 @@
     display: flex; align-items: center; gap: 14px;
   }
   .brand-mark {
-    width: 46px; height: 46px; border-radius: 10px;
-    background: #0D0C0A; border: 1px solid var(--line);
+    width: 50px; height: 50px; border-radius: 999px;
+    background: var(--ink); color: var(--pink);
     display: flex; align-items: center; justify-content: center;
+    font-family: 'Anton', sans-serif; font-weight: 400; font-size: 26px;
+    position: relative;
+  }
+  .brand-mark::after {
+    content: ""; position: absolute; inset: 4px; border: 1.5px solid var(--lime); border-radius: 999px;
   }
   .brand-name {
-    font-family: 'Big Shoulders Display', sans-serif; font-weight: 800;
-    font-size: 22px; letter-spacing: 0.04em;
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    font-size: 26px; letter-spacing: 0.02em; color: var(--ink);
+    text-transform: uppercase;
   }
   .overline {
-    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
-    letter-spacing: 0.22em; text-transform: uppercase; font-size: 13px;
-    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; font-size: 12px;
+    color: var(--ink);
     display: flex; align-items: center; gap: 10px;
+    margin-top: 28px;
   }
-  .trowel-mark {
-    display: inline-block; width: 22px; height: 6px; background: var(--accent);
-    transform: skewX(-30deg);
+  .hairline-ink {
+    display: inline-block; width: 48px; height: 1.5px; background: var(--ink);
   }
 
   .headline {
-    font-family: 'Big Shoulders Display', sans-serif; font-weight: 800;
-    font-size: 140px; line-height: 0.86; letter-spacing: -0.015em;
-    margin-top: 16px;
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    font-size: 116px; line-height: 0.93; letter-spacing: -0.005em;
+    text-transform: uppercase;
+    margin-top: 18px;
   }
-  .headline .a { color: var(--text); display: block; }
-  .headline .b { color: var(--accent); display: block; }
-  .headline .c { display: block; }
-  .headline .ital {
-    font-family: 'Oswald', sans-serif; font-style: italic; font-weight: 400;
-    text-transform: lowercase; margin-right: 14px;
+  .headline .a { color: var(--ink); display: block; }
+  .headline .b { color: var(--cream); display: block; }
+  .headline .c { display: block; color: var(--ink); }
+  .headline .c .lime {
+    background: var(--lime);
+    padding: 0 8px;
+    display: inline-block;
   }
 
   .bottom {
@@ -91,70 +92,78 @@
     display: flex; align-items: center; gap: 14px;
   }
   .stars {
-    color: var(--accent); font-size: 32px; letter-spacing: 4px;
+    color: var(--ink); font-size: 32px; letter-spacing: 4px;
   }
   .reviews-label {
-    font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase; font-size: 13px;
-    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; font-size: 12px;
+    color: var(--ink);
   }
   .phone {
-    font-family: 'Big Shoulders Display', sans-serif; font-weight: 800;
-    font-size: 32px; color: var(--text);
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    font-size: 38px; color: var(--ink); letter-spacing: -0.005em;
   }
   .phone small {
     display: block;
-    font-size: 11px; letter-spacing: 0.22em; color: var(--muted); margin-bottom: 4px;
-    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; color: var(--ink); margin-bottom: 4px;
+    font-weight: 500; text-transform: uppercase;
   }
 
   .right {
-    position: relative; border-radius: 16px; overflow: hidden;
-    border: 1px solid var(--line);
+    position: relative; border-radius: 14px; overflow: hidden;
+    border: 2px solid var(--ink);
     isolation: isolate;
+    box-shadow: 0 24px 60px -28px rgba(11,11,13,0.55);
   }
   .right img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: saturate(0.9) contrast(1.05);
-  }
-  .right::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background:
-      linear-gradient(180deg, transparent 50%, rgba(13,12,10,0.75) 100%),
-      linear-gradient(160deg, rgba(220,107,47,0.16), transparent 60%);
-    mix-blend-mode: multiply;
+    width: 100%; height: 100%; object-fit: cover; object-position: center 60%;
   }
   .ph-stamp {
-    position: absolute; left: 16px; bottom: 16px;
-    font-family: 'Big Shoulders Display'; font-weight: 700;
-    color: var(--text); letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px;
-    background: rgba(13,12,10,0.7); padding: 8px 12px; border-radius: 8px;
-    border: 1px solid var(--line); backdrop-filter: blur(6px);
+    position: absolute; left: 14px; bottom: 14px;
+    font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    color: var(--cream); letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px;
+    background: rgba(11,11,13,0.78); padding: 6px 10px; border-radius: 6px;
+    backdrop-filter: blur(6px);
     z-index: 3;
+  }
+  .badge {
+    position: absolute; top: -16px; left: -16px; z-index: 3;
+    width: 114px; height: 114px; border-radius: 999px;
+    background: var(--lime); color: var(--ink);
+    border: 2px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; transform: rotate(-10deg);
+    box-shadow: 0 18px 36px -12px rgba(11,11,13,0.6);
+  }
+  .badge .v1 {
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    font-size: 24px; line-height: 0.95; letter-spacing: -0.005em;
+    text-transform: uppercase;
+  }
+  .badge .v2 {
+    font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    font-size: 9px; letter-spacing: 0.18em; margin-top: 4px;
   }
 </style>
 </head>
 <body>
-  <div class="atmosphere"></div>
   <div class="grain"></div>
 
   <div class="frame">
     <div class="left">
       <div>
         <div class="brand">
-          <span class="brand-mark">
-            <svg viewBox="0 0 64 64" width="30" height="30">
-              <path d="M14 42 L32 16 L50 42 Z" fill="none" stroke="#DC6B2F" stroke-width="4" stroke-linejoin="round"/>
-              <rect x="20" y="44" width="24" height="4" fill="#DC6B2F"/>
-            </svg>
-          </span>
-          <span class="brand-name">ALL CEMENT RENDERING</span>
+          <span class="brand-mark">A</span>
+          <span class="brand-name">Acrylic Rendering Services</span>
         </div>
 
+        <div class="overline"><span class="hairline-ink"></span> PRECISION IN EVERY LAYER · SYDNEY</div>
+
         <h1 class="headline">
-          <span class="a">CEMENT</span>
-          <span class="b">RENDERING</span>
-          <span class="c"><span class="ital">across</span>SYDNEY.</span>
+          <span class="a">Acrylic</span>
+          <span class="b">Render,</span>
+          <span class="c">By <span class="lime">Hand.</span></span>
         </h1>
       </div>
 
@@ -163,18 +172,24 @@
           <div class="stars-row">
             <div class="stars">★★★★★</div>
           </div>
-          <div class="reviews-label" style="margin-top: 8px;">16 GOOGLE REVIEWS · OWNER-OPERATED</div>
+          <div class="reviews-label" style="margin-top: 8px;">5.0 · 21 GOOGLE REVIEWS · OWNER-OPERATED</div>
         </div>
         <div class="phone">
-          <small>CALL TODAY</small>
-          0410 997 788
+          <small>CALL ANDRES</small>
+          0432 036 006
         </div>
       </div>
     </div>
 
     <div class="right">
-      <img src="assets/2022-01-01 (1).webp" alt="" />
-      <span class="ph-stamp">SYDNEY · 2022</span>
+      <img src="assets/unnamed.webp" alt="" />
+      <div class="badge">
+        <div>
+          <div class="v1">5.0★<br/>RATED</div>
+          <div class="v2">21 REVIEWS</div>
+        </div>
+      </div>
+      <span class="ph-stamp">SYDNEY · 2026</span>
     </div>
   </div>
 </body>
